@@ -2,7 +2,8 @@
 
 class Api::V1::ForecastController < ApplicationController
   def index
-    ForecastFacade.get_forecast(location_param[:location])
+    test = ForecastFacade.get_forecast(location_param[:location])
+    binding.pry
   end
 
   private
