@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class Api::V1::ForecastController < ApplicationController
   def index
-  end 
+    binding.pry
+  end
 end
