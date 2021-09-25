@@ -2,8 +2,8 @@
 
 class Api::V1::ForecastController < ApplicationController
   def index
-    test = ForecastFacade.get_forecast(location_param[:location])
-    binding.pry
+    forecast = ForecastFacade.get_forecast(location_param[:location])
+    render json: ForecastSerializer.new(forecast)
   end
 
   private

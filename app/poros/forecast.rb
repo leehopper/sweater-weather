@@ -1,7 +1,8 @@
 class Forecast
-  attr_reader :current_weather, :daily_weather, :hourly_weather
+  attr_reader :id, :current_weather, :daily_weather, :hourly_weather
 
   def initialize(json)
+    @id = nil
     @current_weather = CurrentWeather.new(json[:current])
     @daily_weather = []
     @hourly_weather = []

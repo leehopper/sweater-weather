@@ -8,6 +8,9 @@ describe 'Forecast API' do
       get '/api/v1/forecast?location=denver,co'
 
       expect(response).to be_successful
+
+      returned = JSON.parse(response.body, symbolize_names: true)
+
     end
   end
 end
