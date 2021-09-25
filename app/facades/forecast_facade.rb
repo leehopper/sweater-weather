@@ -2,6 +2,7 @@
 
 class ForecastFacade
   def self.get_forecast(location)
-    MapQuestService.get_coordinates(location)
+    test = MapQuestService.get_coordinates(location)
+    binding.pry 
   end
 end
