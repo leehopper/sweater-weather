@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OpenWeatherService < ApiService
   def self.get_weather(geo)
     response = Faraday.new('https://api.openweathermap.org/data/2.5/onecall').get do |f|

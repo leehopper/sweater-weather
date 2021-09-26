@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 SimpleCov.start 'rails'
 SimpleCov.add_filter ['spec', 'config', 'app/channels/application_cable', 'app/jobs', 'app/mailers']
