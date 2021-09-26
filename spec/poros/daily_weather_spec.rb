@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe DailyWeather, :vcr do
   before(:each) do
-    location = double()
+    location = double
     allow(location).to receive(:lat).and_return(39.738453)
     allow(location).to receive(:long).and_return(-104.984853)
 
