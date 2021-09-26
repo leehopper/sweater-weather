@@ -30,4 +30,14 @@ describe Forecast, :vcr do
       expect(daily).to be_a(DailyWeather)
     end
   end
+
+  it '.generate_hourly_weather' do
+    @forecast.generate_hourly_weather(@json)
+
+    expect(@forecast.hourly_weather.count).to eq(8)
+
+    @forecast.hourly_weather.each do |hourly|
+      expect(hourly).to be_a(HourlyWeather)
+    end
+  end
 end
