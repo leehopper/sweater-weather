@@ -12,6 +12,5 @@ describe 'ApiServiceSpec', :vcr do
     expect(expected).to be_a(Hash)
     expect(expected).to have_key(:results)
     expect(expected[:results][0]).to have_key(:locations)
-    expect(expected).to have_key(:results)
   end
 end
