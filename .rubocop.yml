@@ -4,5 +4,10 @@ AllCops:
     - 'app/models/application_record.rb'
     - 'config/application.rb'
     - 'db/*'
+    - 'spec/rails_helper.rb'
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context', 'it']
+Documentation:
+    Enabled: false
+Metrics/AbcSize:
+  Enabled: false

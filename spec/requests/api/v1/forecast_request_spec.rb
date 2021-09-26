@@ -72,7 +72,6 @@ describe 'Forecast API', :vcr do
         expect(date).to_not have_key(:wind_speed)
         expect(date).to_not have_key(:wind_deg)
         expect(date).to_not have_key(:wind_gust)
-        expect(date).to_not have_key(:pop)
         expect(date).to_not have_key(:clouds)
       end
 
