@@ -12,9 +12,9 @@ class Library
     @books = []
   end
 
-  # def generate_daily_weather(json)
-  #   json[:daily].first(5).each do |day|
-  #     @daily_weather << DailyWeather.new(day)
-  #   end
-  # end
+  def find_books(json, quantity)
+    json[:docs].first(quantity.to_i).each do |book|
+      @books << Book.new(book)
+    end
+  end
 end

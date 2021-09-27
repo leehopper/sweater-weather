@@ -8,5 +8,6 @@ class BookSearchFacade
     forecast = Forecast.new(forecast_json)
     library_json = OpenLibraryService.get_books(book_params[:location])
     library = Library.new(library_json, book_params[:location])
+    library.find_books(library_json, book_params[:quantity])
   end
 end
