@@ -8,6 +8,10 @@ describe 'Book Search API' do
       get '/api/v1/book-search?location=denver,co&quantity=5'
 
       expect(response).to be_successful
+
+      search = JSON.parse(response.body, symbolize_names: true)[:data]
+
+      binding.pry
     end
   end
 end

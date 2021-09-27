@@ -5,6 +5,7 @@ module Api
     class BookSearchController < ApplicationController
       def index
         search = BookSearchFacade.search(book_params)
+        render json: BooksSerializer.new(search)
       end
 
       private
