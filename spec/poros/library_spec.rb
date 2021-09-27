@@ -23,4 +23,14 @@ describe Library, :vcr do
     expect(@library.books).to be_a(Array)
     expect(@library.books.count).to eq(0)
   end
+
+  it '.find_books' do
+    @library.find_books(@json, 5)
+
+    expect(@library.books.count).to eq(5)
+
+    @library.books.each do |book|
+      expect(book).to be_a(Book)
+    end
+  end
 end
