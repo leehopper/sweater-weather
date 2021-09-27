@@ -61,11 +61,25 @@ describe 'Book Search API', :vcr do
     it 'returns error for quanity less than 1' do
       get '/api/v1/book-search?location=denver,co&quantity=-5'
 
+      expect(response).to be_successful
+
       error = JSON.parse(response.body, symbolize_names: true)
 
       expect(error[:status]).to eq('error')
       expect(error[:code]).to eq(400)
       expect(error[:message]).to eq('quantity must be greater than 0')
+    end
+
+    it 'returns error for quanity greater than 100' do
+      get '/api/v1/book-search?location=denver,co&quantity=200'
+
+      expect(response).to be_successful
+
+      error = JSON.parse(response.body, symbolize_names: true)
+
+      expect(error[:status]).to eq('error')
+      expect(error[:code]).to eq(400)
+      expect(error[:message]).to eq('quantity must be less than 100')
     end
   end
 end
