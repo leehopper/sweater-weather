@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BookForecast
   attr_reader :summary, :temperature
 

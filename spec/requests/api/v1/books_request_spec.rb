@@ -34,7 +34,6 @@ describe 'Book Search API', :vcr do
       expect(attributes[:forecast]).to_not have_key(:conditions)
       expect(attributes[:forecast]).to_not have_key(:icon)
 
-
       expect(attributes).to have_key(:books)
       expect(attributes[:books].count).to eq(5)
 
