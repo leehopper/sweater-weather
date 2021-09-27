@@ -36,5 +36,7 @@ VCR.configure do |config|
   config.allow_http_connections_when_no_cassette = true
   config.filter_sensitive_data('<map_quest_key>') { ENV['map_quest_key'] }
   config.filter_sensitive_data('<open_weather_key>') { ENV['open_weather_key'] }
+  config.filter_sensitive_data('<unsplash_access_key>') { ENV['unsplash_access_key'] }
+  config.filter_sensitive_data('<unsplash_secret_key>') { ENV['unsplash_secret_key'] }
   config.configure_rspec_metadata!
 end
