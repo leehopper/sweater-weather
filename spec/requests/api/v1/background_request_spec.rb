@@ -23,7 +23,7 @@ describe 'Background API', :vcr do
       expect(attributes).to have_key(:image_url)
       expect(attributes[:image_url]).to be_a(String)
       expect(attributes).to have_key(:source)
-      expect(attributes[:source]).to be_a(String)
+      expect(attributes[:source]).to eq('unsplash.com')
       expect(attributes).to have_key(:photographer)
       expect(attributes[:photographer]).to be_a(String)
       expect(attributes).to have_key(:photographer_profile)
