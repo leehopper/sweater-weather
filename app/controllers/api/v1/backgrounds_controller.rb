@@ -9,6 +9,7 @@ module Api
       end
 
       private
+
       def location_param
         params.permit(:location)
       end
