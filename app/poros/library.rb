@@ -3,11 +3,11 @@
 class Library
   attr_reader :id, :type, :destination, :forecast, :total_books_found, :books
 
-  def initialize(json, location)
+  def initialize(json, location, forecast)
     @id = nil
     @type = 'books'
     @destination = location
-    @forecast = nil
+    @forecast = forecast
     @total_books_found = json[:num_found]
     @books = []
   end
