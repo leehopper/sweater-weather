@@ -67,7 +67,7 @@ describe 'Book Search API', :vcr do
 
       expect(error[:status]).to eq('error')
       expect(error[:code]).to eq(400)
-      expect(error[:message]).to eq('quantity must be greater than 0')
+      expect(error[:message]).to eq('quantity must be greater than 1 and less than 100')
     end
 
     it 'returns error for quanity greater than 100' do
@@ -79,7 +79,7 @@ describe 'Book Search API', :vcr do
 
       expect(error[:status]).to eq('error')
       expect(error[:code]).to eq(400)
-      expect(error[:message]).to eq('quantity must be less than 100')
+      expect(error[:message]).to eq('quantity must be greater than 1 and less than 100')
     end
   end
 end
