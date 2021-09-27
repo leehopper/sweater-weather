@@ -5,7 +5,7 @@ module Api
     class BackgroundsController < ApplicationController
       def index
         bg = BackgroundsFacade.find_image(location_param[:location])
-        render json: BackgroundsSerializer.new(bg)
+        render json: ImageSerializer.new(bg)
       end
 
       private

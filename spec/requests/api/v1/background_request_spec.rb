@@ -2,14 +2,15 @@
 
 require 'rails_helper'
 
-describe 'Background API' do
+describe 'Background API', :vcr do
   describe 'return background image' do
     it 'returns json given city param' do
-      get '/api/v1/backgrounds?location=denver,co'
+      get '/api/v1/backgrounds?location=portland,or'
 
       expect(response).to be_successful
 
-      background = JSON.parse(response.body, symbolize_names: true)[:data]
+      bg = JSON.parse(response.body, symbolize_names: true)[:data]
+
     end
   end
 end
