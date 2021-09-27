@@ -6,8 +6,6 @@ class OpenLibraryService < ApiService
       f.params['q'] = location
     end
 
-    test = ApiService.get_json(response)
-
-    binding.pry
+    ApiService.get_json(response)
   end
 end
