@@ -4,7 +4,7 @@ module Api
   module V1
     class BookSearchController < ApplicationController
       def index
-        search = BooKSearchFacade.search(book_params)
+        search = BookSearchFacade.search(book_params)
       end
 
       private
