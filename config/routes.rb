@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :backgrounds, only: [:index]
       resources :book_search, path: '/book-search', only: [:index]
       resources :users, only: [:create]
+      resources :sessions, only: [:create]
     end
   end
 end

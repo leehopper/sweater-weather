@@ -30,7 +30,15 @@ class ApplicationController < ActionController::API
     }.to_json, status: 401
   end
 
-  # def render_not_found_response(exception)
-  #   render json: { error: exception.message }, status: :not_found
-  # end
+  def render_invalid_password
+    render json: {
+      errors: [
+        {
+          status: 403,
+          title: 'Invalid Password',
+          message: 'Password incorrect.'
+        }
+      ]
+    }.to_json, status: 403
+  end
 end
