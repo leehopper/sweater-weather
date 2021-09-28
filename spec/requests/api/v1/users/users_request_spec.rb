@@ -29,6 +29,8 @@ describe 'users' do
       expect(user[:attributes][:email]).to eq(created_user.email)
       expect(user[:attributes]).to have_key(:api_key)
       expect(user[:attributes][:api_key]).to eq(created_user.api_keys.first.token)
+
+      expect(user[:attributes]).to_not have_key(:password)
     end
   end
 
@@ -72,7 +74,7 @@ describe 'users' do
 
       expect(error[:errors][0][:status]).to eq(401)
       expect(error[:errors][0][:title]).to eq('Invalid Attribute')
-      expect(error[:errors][0][:message]).to eq('Invalid user info input')
+      expect(error[:errors][0][:message]).to eq('Email has already been taken')
     end
 
     it 'returns error for no fields' do
@@ -88,7 +90,7 @@ describe 'users' do
 
       expect(error[:errors][0][:status]).to eq(401)
       expect(error[:errors][0][:title]).to eq('Invalid Attribute')
-      expect(error[:errors][0][:message]).to eq('Invalid user info input')
+      expect(error[:errors][0][:message]).to eq('Email can\'t be blank')
     end
   end
 end

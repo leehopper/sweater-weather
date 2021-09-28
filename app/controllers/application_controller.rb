@@ -1,20 +1,17 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  # protect_from_forgery with: :null_session
-
   rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
-  # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-  def invalid_record
+  def invalid_record(exception)
     render json: {
-      errors: [
+      errors: exception.record.errors.full_messages.map do |m|
         {
           status: 401,
           title: 'Invalid Attribute',
-          message: 'Invalid user info input'
+          message: m.to_s
         }
-      ]
+      end
     }.to_json, status: 401
   end
 
@@ -30,7 +27,15 @@ class ApplicationController < ActionController::API
     }.to_json, status: 401
   end
 
-  # def render_not_found_response(exception)
-  #   render json: { error: exception.message }, status: :not_found
-  # end
+  def render_invalid_credentials
+    render json: {
+      errors: [
+        {
+          status: 403,
+          title: 'Invalid Credentials',
+          message: 'Email or password incorrect.'
+        }
+      ]
+    }.to_json, status: 403
+  end
 end
