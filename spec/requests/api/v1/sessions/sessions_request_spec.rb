@@ -10,7 +10,7 @@ describe 'sessions' do
 
       post_params = {
         email: user.email,
-        password: 'password1',
+        password: 'password1'
       }
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
@@ -41,7 +41,7 @@ describe 'sessions' do
 
       post_params = {
         email: user.email,
-        password: 'wrong_password',
+        password: 'wrong_password'
       }
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
@@ -63,7 +63,7 @@ describe 'sessions' do
 
       post_params = {
         email: 'bad_email@email.com',
-        password: 'password1',
+        password: 'password1'
       }
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
