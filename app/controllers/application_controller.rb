@@ -6,15 +6,15 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
   # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-  def invalid_record
+  def invalid_record(exception)
     render json: {
-      errors: [
+      errors: exception.record.errors.full_messages.map do |m|
         {
           status: 401,
           title: 'Invalid Attribute',
-          message: 'Invalid user info input'
+          message: m.to_s
         }
-      ]
+      end
     }.to_json, status: 401
   end
 

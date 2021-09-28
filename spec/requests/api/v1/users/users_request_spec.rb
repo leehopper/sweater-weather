@@ -74,7 +74,7 @@ describe 'users' do
 
       expect(error[:errors][0][:status]).to eq(401)
       expect(error[:errors][0][:title]).to eq('Invalid Attribute')
-      expect(error[:errors][0][:message]).to eq('Invalid user info input')
+      expect(error[:errors][0][:message]).to eq('Email has already been taken')
     end
 
     it 'returns error for no fields' do
@@ -90,7 +90,7 @@ describe 'users' do
 
       expect(error[:errors][0][:status]).to eq(401)
       expect(error[:errors][0][:title]).to eq('Invalid Attribute')
-      expect(error[:errors][0][:message]).to eq('Invalid user info input')
+      expect(error[:errors][0][:message]).to eq('Email can\'t be blank')
     end
   end
 end
