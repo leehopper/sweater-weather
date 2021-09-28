@@ -15,7 +15,7 @@ describe 'road trips' do
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post '/api/v1/road_trip', headers: headers, params: JSON.generate(road_trip: post_params)
+      post '/api/v1/road_trip', headers: headers, params: JSON.generate(body: post_params)
 
       expect(response).to be_successful
 
