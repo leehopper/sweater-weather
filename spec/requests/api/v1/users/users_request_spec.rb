@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'users' do
   describe 'post request happy path' do
     it 'creates a user' do
-      post_params = ({
-        email: "lee_sweater_weather@gmail.com",
+      post_params = {
+        email: 'lee_sweater_weather@gmail.com',
         password: 'password1',
         password_confirmation: 'password1'
-      })
+      }
 
-      headers = {"CONTENT_TYPE" => "application/json"}
+      headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post "/api/v1/users", headers: headers, params: JSON.generate(post_params)
+      post '/api/v1/users', headers: headers, params: JSON.generate(post_params)
 
       created_user = User.last
 
@@ -32,15 +34,15 @@ describe 'users' do
 
   describe 'post request sad path' do
     it 'returns error for non matching passwords' do
-      post_params = ({
-        email: "lee_sweater_weather@gmail.com",
+      post_params = {
+        email: 'lee_sweater_weather@gmail.com',
         password: 'password1',
         password_confirmation: 'different'
-      })
+      }
 
-      headers = {"CONTENT_TYPE" => "application/json"}
+      headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post "/api/v1/users", headers: headers, params: JSON.generate(post_params)
+      post '/api/v1/users', headers: headers, params: JSON.generate(post_params)
 
       expect(response).to_not be_successful
 
@@ -54,15 +56,15 @@ describe 'users' do
     it 'returns error for existing email' do
       existing = create(:user)
 
-      post_params = ({
-        email: "#{existing.email}",
+      post_params = {
+        email: existing.email.to_s,
         password: 'password',
         password_confirmation: 'password'
-      })
+      }
 
-      headers = {"CONTENT_TYPE" => "application/json"}
+      headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post "/api/v1/users", headers: headers, params: JSON.generate(post_params)
+      post '/api/v1/users', headers: headers, params: JSON.generate(post_params)
 
       expect(response).to_not be_successful
 
@@ -74,11 +76,11 @@ describe 'users' do
     end
 
     it 'returns error for no fields' do
-      post_params = ({})
+      post_params = {}
 
-      headers = {"CONTENT_TYPE" => "application/json"}
+      headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post "/api/v1/users", headers: headers, params: JSON.generate(post_params)
+      post '/api/v1/users', headers: headers, params: JSON.generate(post_params)
 
       expect(response).to_not be_successful
 

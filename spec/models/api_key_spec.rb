@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ApiKey, type: :model do
   describe 'relationships' do
-    it {should belong_to(:bearer)}
+    it { should belong_to(:bearer) }
   end
 
-  describe "validations" do
+  describe 'validations' do
     it 'validates' do
       create(:api_key)
       should validate_uniqueness_of(:bearer_id)

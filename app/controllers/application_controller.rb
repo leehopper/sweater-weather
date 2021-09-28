@@ -8,26 +8,26 @@ class ApplicationController < ActionController::API
 
   def invalid_record
     render json: {
-        errors: [
-          {
-            status: 401,
-            title: 'Invalid Attribute',
-            message: 'Invalid user info input'
-          }
-        ]
-      }.to_json, status: 401
+      errors: [
+        {
+          status: 401,
+          title: 'Invalid Attribute',
+          message: 'Invalid user info input'
+        }
+      ]
+    }.to_json, status: 401
   end
 
   def render_bad_password_match
     render json: {
-        errors: [
-          {
-            status: 401,
-            title: 'Invalid Password',
-            message: 'Passwords do not match.'
-          }
-        ]
-      }.to_json, status: 401
+      errors: [
+        {
+          status: 401,
+          title: 'Invalid Password',
+          message: 'Passwords do not match.'
+        }
+      ]
+    }.to_json, status: 401
   end
 
   # def render_not_found_response(exception)
