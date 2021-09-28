@@ -53,8 +53,30 @@ describe 'sessions' do
       error = JSON.parse(response.body, symbolize_names: true)
 
       expect(error[:errors][0][:status]).to eq(403)
-      expect(error[:errors][0][:title]).to eq('Invalid Password')
-      expect(error[:errors][0][:message]).to eq('Password incorrect.')
+      expect(error[:errors][0][:title]).to eq('Invalid Credentials')
+      expect(error[:errors][0][:message]).to eq('Email or password incorrect.')
+    end
+
+    it 'returns error for invalid email' do
+      user = create(:user, password: 'password1')
+      user.api_keys.create(token: SecureRandom.hex)
+
+      post_params = {
+        email: 'bad_email@email.com',
+        password: 'password1',
+      }
+
+      headers = { 'CONTENT_TYPE' => 'application/json' }
+
+      post '/api/v1/sessions', headers: headers, params: JSON.generate(post_params)
+
+      expect(response).to_not be_successful
+
+      error = JSON.parse(response.body, symbolize_names: true)
+
+      expect(error[:errors][0][:status]).to eq(403)
+      expect(error[:errors][0][:title]).to eq('Invalid Credentials')
+      expect(error[:errors][0][:message]).to eq('Email or password incorrect.')
     end
   end
 end

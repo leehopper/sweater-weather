@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  # protect_from_forgery with: :null_session
-
   rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
-  # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def invalid_record(exception)
     render json: {
@@ -30,13 +27,13 @@ class ApplicationController < ActionController::API
     }.to_json, status: 401
   end
 
-  def render_invalid_password
+  def render_invalid_credentials
     render json: {
       errors: [
         {
           status: 403,
-          title: 'Invalid Password',
-          message: 'Password incorrect.'
+          title: 'Invalid Credentials',
+          message: 'Email or password incorrect.'
         }
       ]
     }.to_json, status: 403
