@@ -8,7 +8,7 @@ module Api
           rt = RoadTripFacade.new_roadtrip(rt_params)
           render json: RoadtripSerializer.new(rt)
         else
-          #return invalid key json
+          render_invalid_key
         end
       end
 

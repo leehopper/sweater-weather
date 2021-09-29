@@ -41,4 +41,28 @@ describe 'road trips', :vcr do
       expect(details[:weather_at_eta][:conditions]).to be_a(String)
     end
   end
+
+  describe 'post road trip request sad path' do
+    it 'returns error message for invalid api key' do
+      user = create(:user, :with_api_key)
+
+      post_params = {
+        origin: 'denver,co',
+        destination: 'pueblo,co',
+        api_key: 'bad_key'
+      }
+
+      headers = { 'CONTENT_TYPE' => 'application/json' }
+
+      post '/api/v1/road_trip', headers: headers, params: JSON.generate(body: post_params)
+
+      expect(response).to_not be_successful
+
+      error = JSON.parse(response.body, symbolize_names: true)
+
+      expect(error[:errors][0][:status]).to eq(401)
+      expect(error[:errors][0][:title]).to eq('Unauthorized')
+      expect(error[:errors][0][:message]).to eq('Invalid api key')
+    end
+  end
 end
