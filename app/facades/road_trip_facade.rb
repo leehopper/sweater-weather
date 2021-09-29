@@ -16,7 +16,7 @@ class RoadTripFacade
     geo = Location.new(geo_json)
     weather_json = OpenWeatherService.get_weather(geo)
     forecast = Forecast.new(weather_json)
-    forecast.generate_hourly_weather(weather_json)
+    forecast.generate_hourly_weather(weather_json, 48)
     road_trip.add_weather(forecast)
     road_trip
   end

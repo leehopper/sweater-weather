@@ -34,7 +34,7 @@ describe Forecast, :vcr do
   end
 
   it '.generate_hourly_weather' do
-    @forecast.generate_hourly_weather(@json)
+    @forecast.generate_hourly_weather(@json, 8)
 
     expect(@forecast.hourly_weather.count).to eq(8)
 
