@@ -4,8 +4,12 @@ module Api
   module V1
     class ForecastController < ApplicationController
       def index
-        forecast = ForecastFacade.get_forecast(location_param[:location])
-        render json: ForecastSerializer.new(forecast)
+        if location_param[:location]
+          forecast = ForecastFacade.get_forecast(location_param[:location])
+          render json: ForecastSerializer.new(forecast)
+        else
+          render_missing_param
+        end
       end
 
       private

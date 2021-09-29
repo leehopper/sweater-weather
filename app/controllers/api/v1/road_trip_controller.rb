@@ -15,11 +15,11 @@ module Api
       private
 
       def key_param
-        params.require(:body).permit(:api_key)
+        params.require(:road_trip).permit(:api_key)
       end
 
       def rt_params
-        params.require(:body).permit(:origin, :destination)
+        params.require(:road_trip).permit(:origin, :destination)
       end
     end
   end

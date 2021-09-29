@@ -16,8 +16,8 @@ class Forecast
     end
   end
 
-  def generate_hourly_weather(json)
-    json[:hourly].first(8).each do |hour|
+  def generate_hourly_weather(json, quantity)
+    json[:hourly].first(quantity).each do |hour|
       @hourly_weather << HourlyWeather.new(hour)
     end
   end

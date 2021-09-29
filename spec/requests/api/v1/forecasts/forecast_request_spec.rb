@@ -100,4 +100,18 @@ describe 'Forecast API', :vcr do
       end
     end
   end
+
+  describe 'sad path' do
+    it 'returns error with missing param' do
+      get '/api/v1/forecast'
+
+      expect(response).to_not be_successful
+
+      error = JSON.parse(response.body, symbolize_names: true)
+
+      expect(error[:errors][0][:status]).to eq(401)
+      expect(error[:errors][0][:title]).to eq('Invalid Request')
+      expect(error[:errors][0][:message]).to eq('Missing parameter')
+    end
+  end
 end

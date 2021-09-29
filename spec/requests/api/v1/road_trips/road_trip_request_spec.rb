@@ -15,7 +15,7 @@ describe 'road trips', :vcr do
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post '/api/v1/road_trip', headers: headers, params: JSON.generate(body: post_params)
+      post '/api/v1/road_trip', headers: headers, params: JSON.generate(road_trip: post_params)
 
       expect(response).to be_successful
 
@@ -54,7 +54,7 @@ describe 'road trips', :vcr do
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post '/api/v1/road_trip', headers: headers, params: JSON.generate(body: post_params)
+      post '/api/v1/road_trip', headers: headers, params: JSON.generate(road_trip: post_params)
 
       expect(response).to_not be_successful
 
@@ -76,7 +76,7 @@ describe 'road trips', :vcr do
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post '/api/v1/road_trip', headers: headers, params: JSON.generate(body: post_params)
+      post '/api/v1/road_trip', headers: headers, params: JSON.generate(road_trip: post_params)
 
       expect(response).to be_successful
 

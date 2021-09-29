@@ -15,6 +15,18 @@ class ApplicationController < ActionController::API
     }.to_json, status: 401
   end
 
+  def render_missing_param
+    render json: {
+      errors: [
+        {
+          status: 401,
+          title: 'Invalid Request',
+          message: 'Missing parameter'
+        }
+      ]
+    }.to_json, status: 401
+  end
+
   def render_bad_password_match
     render json: {
       errors: [
