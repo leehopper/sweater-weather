@@ -6,14 +6,14 @@ module Api
       def create
         if ApiKey.find_by(token: key_param[:api_key])
           rt = RoadTripFacade.new_roadtrip(rt_params)
-          binding.pry
+          render json: RoadTripSerializer.new(rt)
         else
           #return invalid key json
         end
       end
 
       private
-      
+
       def key_param
         params.require(:body).permit(:api_key)
       end

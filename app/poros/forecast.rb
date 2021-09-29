@@ -21,4 +21,14 @@ class Forecast
       @hourly_weather << HourlyWeather.new(hour)
     end
   end
+
+  def destination_temp(travel_time)
+    hour = travel_time.strftime('%I').to_i
+    @hourly_weather[hour].temperature
+  end
+
+  def destination_conditions(travel_time)
+    hour = travel_time.strftime('%I').to_i
+    @hourly_weather[hour].conditions
+  end
 end
