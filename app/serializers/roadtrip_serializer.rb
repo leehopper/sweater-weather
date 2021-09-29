@@ -13,7 +13,7 @@ class RoadtripSerializer
   end
 
   attributes :weather_at_eta do |object|
-    if object.weather == nil
+    if object.weather.nil?
       ''
     else
       {

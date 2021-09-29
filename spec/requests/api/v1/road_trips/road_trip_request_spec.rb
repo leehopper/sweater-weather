@@ -44,7 +44,7 @@ describe 'road trips', :vcr do
 
   describe 'post road trip request sad path' do
     it 'returns error message for invalid api key' do
-      user = create(:user, :with_api_key)
+      create(:user, :with_api_key)
 
       post_params = {
         origin: 'denver,co',
