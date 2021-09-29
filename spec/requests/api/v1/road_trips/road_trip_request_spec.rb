@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'road trips' do
+describe 'road trips', :vcr do
   describe 'post road trip request' do
     it 'returns road trip json' do
       user = create(:user, :with_api_key)
@@ -21,7 +21,12 @@ describe 'road trips' do
 
       rt = JSON.parse(response.body, symbolize_names: true)[:data]
 
-      binding.pry
+      expect(rt).to have_key(:id)
+      expect(rt[:id]).to eq(nil)
+      expect(rt).to have_key(:type)
+      expect(rt[:type]).to eq('roadtrip')
+
+      
     end
   end
 end

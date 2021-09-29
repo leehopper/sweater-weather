@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RoadTripSerializer
+class RoadtripSerializer
   include FastJsonapi::ObjectSerializer
   attributes :start_city, :end_city
 
