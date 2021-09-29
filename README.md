@@ -103,7 +103,7 @@ Find the [project spec here](https://backend.turing.edu/module3/projects/sweater
 
 #### Endpoints
 
-[Endpoints](https://github.com/leehopper/sweater-weather/wiki/Endpoints)
+[Endpoints](https://backend.turing.edu/module3/projects/sweater_weather/requirements)
 
 #### <ins>Project Configurations</ins>
 
