@@ -60,7 +60,7 @@
   <img src="https://img.shields.io/badge/fast_jsonapi-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
   <img src="https://img.shields.io/badge/factory_bot_rails-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
   </br>
-  <img src="https://img.shields.io/badge/faker-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" /> />
+  <img src="https://img.shields.io/badge/faker-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
 </p>
 
 #### Development Principles
