@@ -38,4 +38,16 @@ class ApplicationController < ActionController::API
       ]
     }.to_json, status: 403
   end
+
+  def render_invalid_key
+    render json: {
+      errors: [
+        {
+          status: 401,
+          title: 'Unauthorized',
+          message: 'Invalid api key'
+        }
+      ]
+    }.to_json, status: 401
+  end
 end

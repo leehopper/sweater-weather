@@ -15,7 +15,7 @@ describe 'sessions' do
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post '/api/v1/sessions', headers: headers, params: JSON.generate(post_params)
+      post '/api/v1/sessions', headers: headers, params: JSON.generate(session: post_params)
 
       expect(response).to be_successful
 
@@ -46,7 +46,7 @@ describe 'sessions' do
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post '/api/v1/sessions', headers: headers, params: JSON.generate(post_params)
+      post '/api/v1/sessions', headers: headers, params: JSON.generate(session: post_params)
 
       expect(response).to_not be_successful
 
@@ -68,7 +68,7 @@ describe 'sessions' do
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post '/api/v1/sessions', headers: headers, params: JSON.generate(post_params)
+      post '/api/v1/sessions', headers: headers, params: JSON.generate(session: post_params)
 
       expect(response).to_not be_successful
 

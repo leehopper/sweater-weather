@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BookForecast
+class ShortForecast
   attr_reader :summary, :temperature
 
   def initialize(json)
