@@ -4,7 +4,6 @@
 [![Issues][issues-shield]][issues-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Forks][forks-shield]][forks-url]
-[![CircleCI build status][circleci-shield]][circleci-url]
 
 ### Welcome to TikiArté! - A database-driven web application
 
