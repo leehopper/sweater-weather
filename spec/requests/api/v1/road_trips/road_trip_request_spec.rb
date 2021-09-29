@@ -26,7 +26,19 @@ describe 'road trips', :vcr do
       expect(rt).to have_key(:type)
       expect(rt[:type]).to eq('roadtrip')
 
-      
+      details = rt[:attributes]
+
+      expect(details).to have_key(:start_city)
+      expect(details[:start_city]).to eq('denver,co')
+      expect(details).to have_key(:end_city)
+      expect(details[:end_city]).to eq('pueblo,co')
+      expect(details).to have_key(:travel_time)
+      expect(details[:travel_time]).to be_a(String)
+      expect(details).to have_key(:weather_at_eta)
+      expect(details[:weather_at_eta]).to have_key(:temperature)
+      expect(details[:weather_at_eta][:temperature]).to be_a(Float)
+      expect(details[:weather_at_eta]).to have_key(:conditions)
+      expect(details[:weather_at_eta][:conditions]).to be_a(String)
     end
   end
 end
